@@ -1,0 +1,157 @@
+<h1>Sign up</h1>
+
+<div [formGroup]="signUpForm">
+  <!-- first name -->
+  <mat-form-field appearance="outline">
+    <mat-label>First name</mat-label>
+    <input
+      matInput
+      placeholder="First Name"
+      formControlName="firstName"
+      data-e2e="input_firstName"
+    >
+    <mat-hint>Enter your first name</mat-hint>
+    <mat-error *ngIf="signUpForm.controls.firstName.hasError('required')"
+    >
+      The last name is required
+    </mat-error>
+  </mat-form-field>
+
+  <!-- last name -->
+  <mat-form-field appearance="outline">
+    <mat-label>Last name</mat-label>
+    <input
+      matInput
+      placeholder="Last Name"
+      formControlName="lastName"
+      data-e2e="input_lastName"
+    >
+    <mat-hint>Enter your last name</mat-hint>
+    <mat-error *ngIf="signUpForm.controls.lastName.hasError('required')"
+    >
+      The last name is required
+    </mat-error>
+  </mat-form-field>
+
+  <!-- email -->
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      placeholder="email@address"
+      formControlName="email"
+      data-e2e="input_email"
+    >
+    <mat-hint>
+      Enter your email address
+    </mat-hint>
+    <mat-error *ngIf="signUpForm.controls.email.hasError('email')"
+    >
+      Enter valid email address
+    </mat-error>
+    <mat-error *ngIf="signUpForm.controls.email.hasError('required')"
+    >
+      The email address is required
+    </mat-error>
+
+  </mat-form-field>
+
+  <!-- password -->
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input
+      [type]="!signUpForm.controls.password.shown ? 'password':'text'"
+      matInput
+      placeholder="Password"
+      formControlName="password"
+      data-e2e="input_password"
+      (blur)="signUpForm.controls.password.updateValueAndValidity()"
+    >
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="signUpForm.controls.password.shown = !signUpForm.controls.password.shown"
+      [attr.aria-label]="'Show password'"
+      [attr.aria-pressed]="signUpForm.controls.password.shown"
+    >
+      <mat-icon>{{!signUpForm.controls.password.shown ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-hint>Enter desired password. Password should be at least 8 characters long and contain lower and uppercase
+      characters
+    </mat-hint>
+    <mat-error *ngIf="signUpForm.controls.password.hasError('passwordCannotContainFirstName')">
+      Password cannot contain first name
+    </mat-error>
+    <mat-error *ngIf="signUpForm.controls.password.hasError('passwordCannotContainLastName')">
+      Password cannot contain last name
+    </mat-error>
+    <mat-error *ngIf="signUpForm.controls.password.hasError('passwordsDoNotMatch')">
+      Password and confirm password do not match
+    </mat-error>
+    <mat-error *ngIf="signUpForm.controls.password.hasError('minlength')">
+      Password should be at least 8 letters
+    </mat-error>
+    <mat-error *ngIf="signUpForm.controls.password.hasError('pattern')">
+      Password should contain lowercase and uppercase letter
+    </mat-error>
+    <mat-error *ngIf="signUpForm.controls.password.hasError('required')">
+      Password is required
+    </mat-error>
+  </mat-form-field>
+
+  <!-- confirm password -->
+  <mat-form-field appearance="outline">
+    <mat-label>Confirm password</mat-label>
+    <input
+      [type]="!signUpForm.controls.confirmPassword.shown ? 'password':'text'"
+      matInput
+      placeholder="Confirm Password"
+      formControlName="confirmPassword"
+      data-e2e="input_confirmPassword"
+      (blur)="signUpForm.controls.confirmPassword.updateValueAndValidity()"
+    >
+    <mat-hint>Confirm desired password</mat-hint>
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="signUpForm.controls.confirmPassword.shown = !signUpForm.controls.confirmPassword.shown"
+      [attr.aria-label]="'Show confirm password'"
+      [attr.aria-pressed]="signUpForm.controls.confirmPassword.shown"
+    >
+      <mat-icon>{{!signUpForm.controls.confirmPassword.shown ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="signUpForm.controls.confirmPassword.hasError('passwordsDoNotMatch')">
+      Password and confirm password do not match
+    </mat-error>
+    <mat-error *ngIf="signUpForm.controls.confirmPassword.hasError('minlength')">
+      Confirm password should be at least 8 letters
+    </mat-error>
+    <mat-error *ngIf="signUpForm.controls.confirmPassword.hasError('pattern')">
+      Confirm password should contain lowercase and uppercase letter
+    </mat-error>
+    <mat-error *ngIf="signUpForm.controls.confirmPassword.hasError('required')">
+      Confirm password is required
+    </mat-error>
+  </mat-form-field>
+
+  <div class="action-bar">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="signup()"
+      data-e2e="button_signup"
+      [disabled]="signUpResponseDialogOpen"
+    >
+      Sign up
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      data-e2e="button_reset"
+      (click)="signUpForm.reset()"
+    >
+      Reset
+    </button>
+  </div>
+</div>

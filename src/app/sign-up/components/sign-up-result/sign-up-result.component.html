@@ -1,0 +1,39 @@
+<div *ngIf="signUp$ | async as signUp else errorOrLoading">
+  <h1>Sign up successful</h1>
+  <p> You sent us the following data:</p>
+  <dl>
+    <dt>Name</dt>
+    <dd>{{signUp.firstName}} {{signUp.lastName}}</dd>
+
+    <dt>Email</dt>
+    <dd>{{signUp.email}}</dd>
+  </dl>
+  <button
+    mat-raised-button
+    mat-dialog-close
+    color="primary"
+  >
+    Close
+  </button>
+</div>
+
+<ng-template #errorOrLoading>
+  <mat-error
+    *ngIf="errorMessage$ | async as errorMessage else loading"
+    class="network-errors"
+  >
+    {{errorMessage}}
+  </mat-error>
+
+  <ng-template #loading>
+    <mat-spinner
+      diameter="30"
+      color="primary"
+    >
+    </mat-spinner>
+    loading...
+  </ng-template>
+</ng-template>
+
+
+

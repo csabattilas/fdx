@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use '~@angular/material' as mat;
+
+header {
+  background: #4d148c;
+  padding: 1rem;
+}
+
+a {
+  color: white;
+}

@@ -1,0 +1,30 @@
+{
+  "valid": {
+    "firstName": "hello",
+    "lastName": "here",
+    "email": "email@at.com",
+    "password": "testTEst",
+    "confirmPassword": "testTEst"
+  },
+  "passwordNotMatch": {
+    "firstName": "hello",
+    "lastName": "here",
+    "email": "email@at.com",
+    "password": "testTEst",
+    "confirmPassword": "testTest"
+  },
+  "invalidEmail": {
+    "firstName": "hello",
+    "lastName": "here",
+    "email": "email",
+    "password": "testTEst",
+    "confirmPassword": "testTest"
+  },
+  "passwordContainsFirstName": {
+    "firstName": "hello",
+    "lastName": "here",
+    "email": "email@at.com",
+    "password": "testTEsthello",
+    "confirmPassword": "testTest"
+  }
+}

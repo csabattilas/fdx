@@ -1,10 +1,9 @@
 @use '~@angular/material' as mat;
-@use 'sass:map';
 
 @include mat.core();
 
-$fdx-primary: mat.define-palette(map.merge(mat.$indigo-palette, (500: #4d148c)));
-$fdx-accent: mat.define-palette(map.merge(mat.$orange-palette, (500: #ff6200)));
+$fdx-primary: mat.define-palette(mat.$indigo-palette, 500);
+$fdx-accent: mat.define-palette(mat.$orange-palette, A200, A100, A400);
 
 $fdx-warn: mat.define-palette(mat.$red-palette);
 
