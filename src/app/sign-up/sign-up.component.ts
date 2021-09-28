@@ -1,10 +1,10 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
-import {finalize} from 'rxjs/operators';
-import {SignUpResultComponent} from './components/sign-up-result/sign-up-result.component';
-import {SignUpFormService} from './services/sign-up-form.service';
-import {SignUpService} from './services/sign-up.service';
 import {SignUpFormGroup, SignUpRequest, SignUpResponse} from './sign-up.model';
+import {MatDialog} from '@angular/material/dialog';
+import {SignUpFormService} from './services/sign-up-form.service';
+import {SignUpResultComponent} from './components/sign-up-result/sign-up-result.component';
+import {SignUpService} from './services/sign-up.service';
+import {finalize} from 'rxjs/operators';
 
 @Component({
   selector: 'app-sign-up',
@@ -52,4 +52,3 @@ export class SignUpComponent {
       })).subscribe();
   }
 }
-

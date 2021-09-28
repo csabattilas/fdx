@@ -43,5 +43,3 @@ export type SignUpFormGroup = FormGroup & {
 export interface SignUpFormValidatorFn {
   (group: SignUpFormGroup): ValidationErrors | null
 }
-
-

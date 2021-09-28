@@ -1,7 +1,7 @@
-import {TestBed} from '@angular/core/testing';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SignUpFormGroup} from '../sign-up.model';
 import {SignUpFormService} from './sign-up-form.service';
+import {TestBed} from '@angular/core/testing';
 
 describe('SignUpFormService', () => {
   let service: SignUpFormService;

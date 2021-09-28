@@ -50,6 +50,13 @@
             ],
             "allowSeparatedGroups": false
           }
+        ],
+        "no-multiple-empty-lines": [
+          2,
+          {
+            "max": 2,
+            "maxEOF": 1
+          }
         ]
       }
     },
@@ -60,7 +67,15 @@
       "extends": [
         "plugin:@angular-eslint/template/recommended"
       ],
-      "rules": {}
+      "rules": {
+        "no-multiple-empty-lines": [
+          2,
+          {
+            "max": 2,
+            "maxEOF": 1
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
 import {FormBuilder, FormControl, ValidationErrors, Validators} from '@angular/forms';
 import {SignUp, SignUpFormControls, SignUpFormGroup, SignUpFormValidatorFn} from '../sign-up.model';
+import {Injectable} from '@angular/core';
 
 /**
  * As we needed some more complex validations for the passwords better we delegate the form creation / management to a service.

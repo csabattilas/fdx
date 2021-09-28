@@ -1,11 +1,11 @@
+import {SignUpFixtureTypes, SignUpFixtures} from '../fixtures/sign-up.model';
 import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
-import {SignUpFixtures, SignUpFixtureTypes} from '../fixtures/sign-up.model';
 import {e2e} from '../support/helper';
 
-// for sake of simplicity will keep just one spec
 describe('My First Test', () => {
   let signUpFixtures: SignUpFixtures;
+
   before(() => {
     cy.fixture('sign-up.fixture').then((data) => {
       signUpFixtures = data;

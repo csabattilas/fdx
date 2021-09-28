@@ -7,6 +7,10 @@ Small sign-up form made via angular 12. Using cypress for e2e and jest for unit 
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change
 any of the source files.
 
+## Linting
+
+Run `npm run lint` will run eslint on the project.
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also

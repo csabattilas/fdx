@@ -1,8 +1,8 @@
+import {BehaviorSubject, Subject, throwError} from 'rxjs';
+import {SignUpRequest, SignUpResponse} from '../sign-up.model';
+import {catchError, map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Subject, throwError} from 'rxjs';
-import {catchError, map} from 'rxjs/operators';
-import {SignUpRequest, SignUpResponse} from '../sign-up.model';
 
 @Injectable({
   providedIn: 'root'

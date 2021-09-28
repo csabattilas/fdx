@@ -1,22 +1,21 @@
-import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {MatButtonModule} from '@angular/material/button';
-import {MATERIAL_SANITY_CHECKS} from '@angular/material/core';
 import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import {Subject, of} from 'rxjs';
+import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {MATERIAL_SANITY_CHECKS} from '@angular/material/core';
+import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/testing';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {of, Subject} from 'rxjs';
 import {SharedModule} from '../shared/shared.module';
-import {SignUpResultComponent} from './components/sign-up-result/sign-up-result.component';
-import {SignUpFormService} from './services/sign-up-form.service';
-import {SignUpService} from './services/sign-up.service';
-
 import {SignUpComponent} from './sign-up.component';
+import {SignUpFormService} from './services/sign-up-form.service';
 import {SignUpResponse} from './sign-up.model';
+import {SignUpResultComponent} from './components/sign-up-result/sign-up-result.component';
+import {SignUpService} from './services/sign-up.service';
 
 describe('SignUpComponent', () => {
   let component: SignUpComponent;
