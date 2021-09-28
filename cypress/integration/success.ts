@@ -24,6 +24,12 @@ describe('My First Test', () => {
   it('should fill in sign up form with valid values then after successful submit should show the dialog', () => {
     cy.fillInSignUpForm(signUpFixtures[SignUpFixtureTypes.VAlID])
     cy.get(e2e('button_signup')).click();
-    cy.contains('Sign up successful'); // waiting that much so if there is network pending will finish with error i can still finish the round-trip
+    cy.contains('Sign up successful', {timeout: 10000});
+    cy.get('[data-e2e="button_signup"][disabled="true"]').should('exist');
+
+    cy.get(e2e('button_close')).click(); // test closing
+    cy.contains('Sign up successful').should('not.exist');
+    cy.get('mat-dialog').should('not.exist');
+    cy.get('[data-e2e="button_signup"][disabled="true"]').should('not.exist');
   });
 })

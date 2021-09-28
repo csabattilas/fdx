@@ -1,6 +1,6 @@
 <h1>Sign up</h1>
 
-<div [formGroup]="signUpForm">
+<form [formGroup]="signUpForm">
   <!-- first name -->
   <mat-form-field appearance="outline">
     <mat-label>First name</mat-label>
@@ -66,6 +66,7 @@
       placeholder="Password"
       formControlName="password"
       data-e2e="input_password"
+      autocomplete="true"
       (blur)="signUpForm.controls.password.updateValueAndValidity()"
     >
     <button
@@ -80,10 +81,10 @@
     <mat-hint>Enter desired password. Password should be at least 8 characters long and contain lower and uppercase
       characters
     </mat-hint>
-    <mat-error *ngIf="signUpForm.controls.password.hasError('passwordCannotContainFirstName')">
+    <mat-error *ngIf="signUpForm.controls.password.hasError('passwordContainsFirstName')">
       Password cannot contain first name
     </mat-error>
-    <mat-error *ngIf="signUpForm.controls.password.hasError('passwordCannotContainLastName')">
+    <mat-error *ngIf="signUpForm.controls.password.hasError('passwordContainsLastName')">
       Password cannot contain last name
     </mat-error>
     <mat-error *ngIf="signUpForm.controls.password.hasError('passwordsDoNotMatch')">
@@ -109,6 +110,7 @@
       placeholder="Confirm Password"
       formControlName="confirmPassword"
       data-e2e="input_confirmPassword"
+      autocomplete="true"
       (blur)="signUpForm.controls.confirmPassword.updateValueAndValidity()"
     >
     <mat-hint>Confirm desired password</mat-hint>
@@ -154,4 +156,4 @@
       Reset
     </button>
   </div>
-</div>
+</form>

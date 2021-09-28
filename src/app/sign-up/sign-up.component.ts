@@ -48,7 +48,7 @@ export class SignUpComponent {
     ).afterClosed().pipe(
       finalize(() => {
         this.signUpResponseDialogOpen = false;
-        this.signUpForm.reset()
+        this.signUpFormService.resetForm()
       })).subscribe();
   }
 }

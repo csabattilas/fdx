@@ -12,18 +12,19 @@
     mat-raised-button
     mat-dialog-close
     color="primary"
+    data-e2e="button_close"
   >
     Close
   </button>
 </div>
 
 <ng-template #errorOrLoading>
-  <mat-error
-    *ngIf="errorMessage$ | async as errorMessage else loading"
-    class="network-errors"
+  <p class="mat-error"
+     *ngIf="errorMessage$ | async as errorMessage else loading"
+     class="network-errors"
   >
     {{errorMessage}}
-  </mat-error>
+  </p>
 
   <ng-template #loading>
     <mat-spinner
@@ -34,6 +35,3 @@
     loading...
   </ng-template>
 </ng-template>
-
-
-

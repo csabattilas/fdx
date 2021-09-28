@@ -33,6 +33,10 @@ export class SignUpFormService {
     this._form.markAllAsTouched();
   }
 
+  public resetForm() {
+    this._form.reset();
+  }
+
   private create(): void {
     this._form = this.formBuilder.group(
       {
@@ -46,8 +50,8 @@ export class SignUpFormService {
 
     this._form.setValidators([
       this.passwordMatchingValidator,
-      this.passwordCannotContainFirstName,
-      this.passwordCannotContainLastName,
+      this.passwordContainsFirstName,
+      this.passwordContainsLastName,
     ]);
   }
 
@@ -75,37 +79,37 @@ export class SignUpFormService {
     return null;
   }
 
-  private passwordCannotContainFirstName: SignUpFormValidatorFn = (group: SignUpFormGroup): ValidationErrors | null => {
+  private passwordContainsFirstName: SignUpFormValidatorFn = (group: SignUpFormGroup): ValidationErrors | null => {
     const passwordControl = (group.controls as SignUpFormControls).password;
     const firstNameControl = (group.controls as SignUpFormControls).firstName;
 
     if (
       firstNameControl.value &&
-      passwordControl.value?.toLowerCase().indexOf(firstNameControl.value.toLocaleLowerCase()) >= 0
+      passwordControl.value?.toLowerCase().indexOf(firstNameControl.value.toLowerCase()) >= 0
     ) {
-      passwordControl.setErrors({'passwordCannotContainFirstName': true})
+      passwordControl.setErrors({'passwordContainsFirstName': true})
     } else if (
       passwordControl.errors &&
-      passwordControl.errors['passwordCannotContainFirstName']
+      passwordControl.errors['passwordContainsFirstName']
     ) {
-      passwordControl.updateValueAndValidity()
+      passwordControl.updateValueAndValidity();
     }
 
     return null;
   }
 
-  private passwordCannotContainLastName: SignUpFormValidatorFn = (group: SignUpFormGroup): ValidationErrors | null => {
+  private passwordContainsLastName: SignUpFormValidatorFn = (group: SignUpFormGroup): ValidationErrors | null => {
     const passwordControl = (group.controls as SignUpFormControls).password;
     const lastNameControl = (group.controls as SignUpFormControls).lastName;
 
     if (
       lastNameControl.value &&
-      passwordControl.value?.toLowerCase().indexOf(lastNameControl.value.toLocaleLowerCase()) >= 0
+      passwordControl.value?.toLowerCase().indexOf(lastNameControl.value.toLowerCase()) >= 0
     ) {
-      passwordControl.setErrors({'passwordCannotContainLastName': true})
+      passwordControl.setErrors({'passwordContainsLastName': true})
     } else if (
       passwordControl.errors &&
-      passwordControl.errors['passwordCannotContainLastName']
+      passwordControl.errors['passwordContainsLastName']
     ) {
       passwordControl.updateValueAndValidity()
     }

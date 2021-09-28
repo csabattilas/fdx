@@ -1,7 +1,13 @@
+import {HttpClientModule} from '@angular/common/http';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {MATERIAL_SANITY_CHECKS} from '@angular/material/core';
 import {MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {of} from 'rxjs';
+import {SignUpService} from '../../services/sign-up.service';
 
 import {SignUpResultComponent} from './sign-up-result.component';
+
 
 describe('SignUpResultComponent', () => {
   let component: SignUpResultComponent;
@@ -9,11 +15,25 @@ describe('SignUpResultComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatDialogModule],
-      declarations: [SignUpResultComponent],
-      providers: [{
-        provide: MAT_DIALOG_DATA, useValue: {}
-      }]
+      imports: [
+        HttpClientModule,
+        MatProgressSpinnerModule,
+        MatDialogModule
+      ],
+      declarations: [
+        SignUpResultComponent
+      ],
+      providers: [
+        {
+          provide: MAT_DIALOG_DATA,
+          useValue: of({}),
+        },
+        {
+          provide: MATERIAL_SANITY_CHECKS,
+          useValue: false
+        },
+        SignUpService,
+      ]
     })
       .compileComponents();
   });
@@ -24,7 +44,7 @@ describe('SignUpResultComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
   });
 });

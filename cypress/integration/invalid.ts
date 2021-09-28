@@ -29,6 +29,14 @@ describe('My First Test', () => {
 
     cy.get(e2e('button_signup')).click();
     cy.contains('Password and confirm password do not match');
+
+    cy.get(e2e('input_password')).clear();
+    cy.get(e2e('input_password')).type('testTEst');
+
+    cy.get(e2e('input_confirmPassword')).clear()
+    cy.get(e2e('input_confirmPassword')).type('testTEst');
+
+    cy.contains('Password and confirm password do not match').should('not.exist');
   });
 
   it('should fill in sign up form with invalid email then I should see input validation error', () => {
@@ -43,5 +51,9 @@ describe('My First Test', () => {
 
     cy.fillInSignUpForm(signUpFixtures[SignUpFixtureTypes.PASSWORD_CONTAINS_FIRSTNAME]);
     cy.contains('Password cannot contain first name');
+
+    cy.get(e2e('input_firstName')).clear().type('aaaaa')
+    cy.contains('Password cannot contain first name').should('not.exist');
+    cy.contains('Password and confirm password do not match');
   });
 })

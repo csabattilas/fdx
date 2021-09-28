@@ -8,7 +8,6 @@ import {SignUpRequest, SignUpResponse} from '../sign-up.model';
   providedIn: 'root'
 })
 export class SignUpService {
-
   private readonly signUpApiPath = '/api/users'; // this usually depends on env, but for this demo we can keep this simple
 
   private signUpSubject: Subject<SignUpResponse> = new Subject<SignUpResponse>();
