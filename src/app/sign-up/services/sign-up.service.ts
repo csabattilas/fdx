@@ -1,4 +1,4 @@
-import {BehaviorSubject, Subject, throwError} from 'rxjs';
+import {BehaviorSubject, throwError} from 'rxjs';
 import {SignUpRequest, SignUpResponse} from '../sign-up.model';
 import {catchError, map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
@@ -9,9 +9,6 @@ import {Injectable} from '@angular/core';
 })
 export class SignUpService {
   private readonly signUpApiPath = '/api/users'; // this usually depends on env, but for this demo we can keep this simple
-
-  private signUpSubject: Subject<SignUpResponse> = new Subject<SignUpResponse>();
-  public signUp$ = this.signUpSubject.asObservable();
 
   private errorMessageSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   public errorMessage$ = this.errorMessageSubject.asObservable();
